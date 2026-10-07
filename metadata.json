@@ -1,0 +1,6 @@
+{
+  "name": "Ash’s Archive",
+  "description": "An intimate, elegant digital personal diary with paper-like pages, authentic Bangla and English typography, persistent memories, and subtle page-turning.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

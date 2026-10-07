@@ -1,0 +1,224 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-serif: 'EB Garamond', Georgia, Cambria, 'Times New Roman', serif;
+    --font-bengali: 'Noto Serif Bengali', 'SolaimanLipi', Georgia, serif;
+    --font-display: 'Cinzel', 'EB Garamond', serif;
+    --font-handwriting: 'Caveat', 'Reenie Beanie', cursive;
+
+    /* Light Mode: Warm antique parchment, tea-stained ivory, sepia charcoal ink */
+    --paper-bg: #fdfbf7;
+    --paper-page: #fbf8f1;
+    --paper-page-alt: #f6f1e6;
+    --paper-border: #e6dfd1;
+    --paper-spine: #d8cebc;
+    --ink-primary: #2d2823;
+    --ink-secondary: #5e5549;
+    --ink-muted: #8b8071;
+    --ink-accent: #8b3a2b;
+    --ribbon-color: #8b261e;
+    --cover-leather: #2b1f1d;
+    --gold-foil: #c89d56;
+  }
+
+  [data-theme='dark'] {
+    /* Dark Mode: Deep charcoal leather, warm aged night parchment, soft glowing cream ink */
+    --paper-bg: #151413;
+    --paper-page: #1f1d1b;
+    --paper-page-alt: #1a1816;
+    --paper-border: #332f2b;
+    --paper-spine: #2a2622;
+    --ink-primary: #e6e0d4;
+    --ink-secondary: #b5aba0;
+    --ink-muted: #7c7468;
+    --ink-accent: #d97764;
+    --ribbon-color: #a8382c;
+    --cover-leather: #141211;
+    --gold-foil: #dfba7c;
+  }
+}
+
+body {
+  background-color: var(--paper-bg);
+  color: var(--ink-primary);
+  font-family: var(--font-serif);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.4s ease, color 0.3s ease;
+}
+
+/* Custom font utility classes */
+.font-bengali {
+  font-family: var(--font-bengali);
+  line-height: 1.95;
+  letter-spacing: 0.015em;
+}
+
+.font-garamond {
+  font-family: var(--font-serif);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-handwriting {
+  font-family: var(--font-handwriting);
+}
+
+/* Subtle realistic paper texture effect with gentle tactile tooth */
+.paper-texture {
+  background-color: var(--paper-page);
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(200, 185, 160, 0.04) 0%, transparent 80%),
+    linear-gradient(to right, rgba(0, 0, 0, 0.02) 0%, transparent 6%, transparent 94%, rgba(0, 0, 0, 0.02) 100%);
+}
+
+[data-theme='dark'] .paper-texture {
+  background-color: var(--paper-page);
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.015) 0%, transparent 80%),
+    linear-gradient(to right, rgba(0, 0, 0, 0.25) 0%, transparent 6%, transparent 94%, rgba(0, 0, 0, 0.2) 100%);
+}
+
+/* Realistic diary spine gutter shadow */
+.book-gutter-left {
+  box-shadow: inset 20px 0 28px -12px rgba(45, 30, 15, 0.14);
+}
+
+.book-gutter-right {
+  box-shadow: inset -20px 0 28px -12px rgba(45, 30, 15, 0.14);
+}
+
+[data-theme='dark'] .book-gutter-left {
+  box-shadow: inset 22px 0 32px -10px rgba(0, 0, 0, 0.55);
+}
+
+[data-theme='dark'] .book-gutter-right {
+  box-shadow: inset -22px 0 32px -10px rgba(0, 0, 0, 0.55);
+}
+
+/* Realistic deckle edges / stacked book pages shadow */
+.paper-stack-edges {
+  box-shadow: 
+    1px 1px 0 var(--paper-border),
+    2px 2px 0 rgba(200, 185, 160, 0.35),
+    3px 3px 0 rgba(180, 165, 140, 0.25),
+    4px 4px 0 rgba(160, 145, 120, 0.18),
+    0 15px 35px -8px rgba(45, 30, 15, 0.18);
+}
+
+[data-theme='dark'] .paper-stack-edges {
+  box-shadow: 
+    1px 1px 0 var(--paper-border),
+    2px 2px 0 rgba(35, 30, 25, 0.7),
+    3px 3px 0 rgba(25, 20, 15, 0.6),
+    0 18px 40px -8px rgba(0, 0, 0, 0.85);
+}
+
+/* Physical paper edge stack layers effect */
+.diary-book-shadow {
+  box-shadow: 
+    0 1px 3px rgba(0, 0, 0, 0.06),
+    0 8px 24px -4px rgba(40, 30, 20, 0.15),
+    0 25px 40px -12px rgba(40, 30, 20, 0.2),
+    -4px 0 10px -2px rgba(0, 0, 0, 0.05),
+    4px 0 10px -2px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme='dark'] .diary-book-shadow {
+  box-shadow: 
+    0 1px 3px rgba(0, 0, 0, 0.5),
+    0 12px 30px -4px rgba(0, 0, 0, 0.7),
+    0 30px 60px -12px rgba(0, 0, 0, 0.85);
+}
+
+/* Letterpress printed page number styling */
+.letterpress-text {
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.15em;
+}
+
+[data-theme='dark'] .letterpress-text {
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.8);
+}
+
+/* Perspective container for 3D page flips */
+.perspective-500 {
+  perspective: 600px;
+}
+
+.perspective-1000 {
+  perspective: 1200px;
+}
+
+/* Gentle page flip animation for loader */
+@keyframes pageFlipAnim {
+  0% {
+    transform: rotateY(0deg);
+  }
+  50% {
+    transform: rotateY(-140deg);
+  }
+  100% {
+    transform: rotateY(0deg);
+  }
+}
+
+.animate-page-flip {
+  animation: pageFlipAnim 2.2s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+  transform-style: preserve-3d;
+}
+
+/* Silk Ribbon Bookmark Styling with stitched edge & tactile gradient */
+.ribbon-bookmark {
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.15) 0%,
+    transparent 15%,
+    transparent 85%,
+    rgba(0, 0, 0, 0.15) 100%
+  ), var(--ribbon-color);
+  box-shadow: 
+    0 4px 8px -2px rgba(0, 0, 0, 0.3),
+    0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Smooth subtle page transition */
+.page-flip-container {
+  perspective: 2000px;
+}
+
+/* Paper lined texture option for diary text area */
+.diary-lined-bg {
+  background-size: 100% 2.3rem;
+  background-image: linear-gradient(to bottom, transparent 96%, rgba(180, 160, 130, 0.18) 96%);
+  line-height: 2.3rem;
+}
+
+[data-theme='dark'] .diary-lined-bg {
+  background-image: linear-gradient(to bottom, transparent 96%, rgba(200, 190, 170, 0.08) 96%);
+}
+
+/* Custom scrollbar matching paper aesthetic */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(140, 120, 100, 0.25);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(140, 120, 100, 0.45);
+}
